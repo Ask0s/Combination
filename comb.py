@@ -1,13 +1,12 @@
 import sys
 
 def comb(A,n,k,p,lo):
-    poss = []
-    # Fill A[], and poss[], with possible integers out of k
-    for j in range(k):
-        poss.append(j)
-        A[j] = poss[j]
-
-    
+    if p >= len(A):
+        print(A)
+        p = 0
+    else:
+        comb(A,n,k,p+1,lo+1)
+        comb(A,n,k,p,lo+1)
 
 
     """
