@@ -1,15 +1,14 @@
 import sys
 
 def comb(A,n,k,p,lo):
-    if p == len(A) or lo == n:
+    if p == len(A):
         print(A)
         return
     else:
         for i in range(p,len(A)):
-            A[i] = lo
-            comb(A,n,k,p+1,lo+1)
-            A[i] = lo
-            comb(A,n,k,p,lo+1)
+            A[i], lo = lo, A[i]
+        comb(A,n,k,p+1,lo+1)
+        comb(A,n,k,p,lo+1)
 
 if __name__ == "__main__":
     d = len(sys.argv)>3
