@@ -1,5 +1,11 @@
 import sys
 
+# Algorithm:
+# Place digits d from lo to hi in position p
+# Then recursively place digits in position p+1
+# lo: previously placed digit + 1
+# hi: n-k+p for pos p
+
 def comb(A,n,k,p,lo):
     if p >= k or lo >= n:
         print(A)
@@ -12,8 +18,8 @@ def comb(A,n,k,p,lo):
 
 if __name__ == "__main__":
     d = len(sys.argv)>3
-    n = int(5)
-    k = int(3)
+    n = int(sys.argv[1])
+    k = int(sys.argv[2])
     A = []
     for i in range(k):
         A.append(0)
