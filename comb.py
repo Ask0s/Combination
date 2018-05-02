@@ -14,7 +14,6 @@ def comb(A,n,k,p,lo):
         for i in range(lo,hi+1):
             A[p] = i
             comb(A,n,k,p+1,i+1)
-        #comb(A,n,k,p,lo+1)
 
 if __name__ == "__main__":
     d = len(sys.argv)>3
