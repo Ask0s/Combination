@@ -1,19 +1,19 @@
 import sys
 
+# Algorithm:
+# Place digits d from lo to hi in position p
+# Then recursively place digits in position p+1
+# lo: previously placed digit + 1
+# hi: n-k+p for pos p (highest digit that can be in that pos)
+
 def comb(A,n,k,p,lo):
-    poss = []
-    # Fill A[], and poss[], with possible integers out of k
-    for j in range(k):
-        poss.append(j)
-        A[j] = poss[j]
-
-    
-
-
-    """
-      n>=1, k<=n, p: position to fill, lo: first number to pick
-      print all possible subsets of k out of n
-    """
+    hi = (n-k)+p
+    if p >= k or lo >= n:
+        print(A)
+    else:
+        for i in range(lo,hi+1):
+            A[p] = i
+            comb(A,n,k,p+1,i+1)
 
 if __name__ == "__main__":
     d = len(sys.argv)>3
